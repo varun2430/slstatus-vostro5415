@@ -64,6 +64,14 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function		format			argument */
+
+	{ wifi_perc,		"[   %s% ]",		"wlp3s0"},
+	{ cpu_perc,		" [  %s% ]",		NULL},
+	{ run_command,		" [  %s ]",		"free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g" },
+	{ run_command,		" [ %s ]",		"~/.config/slstatus-vostro5415/script/battery.sh" },
+	{ run_command,		" [ %s ]",		"~/.config/slstatus-vostro5415/script/volume.sh" },
+	{ datetime,		" [ %s ]",		"%d-%m-%Y %T" },
+
 };
+
